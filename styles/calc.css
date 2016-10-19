@@ -1,0 +1,812 @@
+@font-face {
+    font-family: Muemo; 
+    src: url('https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Font/museo_sans_cyrillic_500.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+   }
+#np-calc-body {
+    width: 200px;
+    margin: 0 auto;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    font-family: 'Muemo', sans-serif;
+    background: #fff;
+    padding: 10px;
+    min-height: 325px;
+    box-sizing: border-box;
+    display: block;
+}
+
+#np-calc-body input,
+#np-calc-body span,
+#np-calc-body button,
+#np-calc-body ul li {
+    font-family: 'Muemo', sans-serif;
+}
+
+#np-calc-body input[type=text]::-ms-clear{
+    display: none;
+}
+
+#np-text-button {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.np-calc-wrapper {
+    position: relative;
+    background: inherit;
+    border-radius: 8px;
+    height: inherit;
+    min-height: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.np-calc-logotype {
+    display: block;
+    width: 45px;
+    min-height: 45px;
+    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-logo.svg") no-repeat center center;
+    margin: auto;
+}
+
+.np-hl {
+    border-bottom: solid 1px #b1b9c1;
+    opacity: .3;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 12px;
+}
+
+#np-calc-title {
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    color: #6c737b;
+}
+
+.np-calc-list {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.np-calc-field {
+    position: relative;
+    color: #6C737E;
+    width: 100%;
+    height: 41px;
+    padding: 2px;
+    line-height: 43px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 11px;
+    /*overflow: hidden;*/
+    box-sizing: border-box;
+}
+
+.np-calc-field:last-child {
+    margin-bottom: 0;
+}
+
+.np-calc-field:focus {
+    outline: none;
+}
+
+.np-options-placeholder {
+    display: block;
+    padding: 11px 0 12px 9px;
+    line-height: 17px;
+    list-style-type: none;
+    width: 100%;
+    height: 38px;
+    border: solid 1px #e0e0e0;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #b1b9c1;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #fbfbfb;
+}
+
+.np-options-enter-point {
+    display: none;
+    position: absolute;
+    top: 41px;
+    right: 0;
+    width: 100%;
+    max-height: 230px;
+    margin: 0;
+    padding: 0;
+    z-index: 9999;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    box-shadow: 0 4px 6px 0 rgba(148, 148, 148, 0.5);
+}
+
+.np-toggle-options-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 26px;
+    height: 43px;
+    cursor: pointer;
+    z-index: 9998;
+}
+
+.np-toggle-options-list:after {
+    content: "";
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/dropdown-arrow.svg") no-repeat;
+    width: 12px;
+    height: 8px;
+}
+
+.np-options-list-item {
+    display: block;
+    font-size: 12px;
+    padding-left: 9px;
+    width: 100%;
+    background-color: #fbfbfb;
+    min-height: 13px;
+    line-height: 30px;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.np-options-list-item:hover {
+    background-color: #F2F2F2;
+}
+
+.np-option-search-item {
+    display: block;
+    color: #b1b9c1;
+    line-height: 17px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    width: 100%;
+    background: #fbfbfb;
+    outline: 0;
+    height: 38px;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    padding: 10px 15px 10px 10px;
+}
+
+.np-option-search-item:focus,
+.np-option-search-item-weight:focus
+{
+    outline: none;
+    border-color: #b1b9c1;
+}
+
+.np-option-search-item-weight {
+    display: block;
+    width: 100%;
+    background-color: #fbfbfb;
+    padding: 11px 25px 12px 9px;
+    line-height: 17px;
+    list-style-type: none;
+    height: 38px;
+    border: solid 1px #e0e0e0;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #b1b9c1;
+    box-sizing: border-box;
+}
+
+.np-option-search-item-weight:focus {
+    outline: none;
+}
+
+.np-option-search-item-cost {
+    display: block;
+    width: 100%;
+    background-color: #fbfbfb;
+    padding: 11px 0 12px 9px;
+    line-height: 17px;
+    list-style-type: none;
+    height: 38px;
+    border: solid 1px #e0e0e0;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #b1b9c1;
+    box-sizing: border-box;
+}
+
+.np-option-search-item-cost:focus {
+    outline: none;
+}
+
+#np-load-image {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: calc(50% - 16px);
+    width: 32px;
+    height: 100%;
+    background: url('https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/loading.png') no-repeat center transparent !important;
+    -webkit-transition: all 0.6s linear;
+    transition: all 0.6s linear;
+}
+
+#np-cost-field {
+    display: none;
+    position: relative;
+    padding-bottom: 0;
+    background-color: transparent;
+    border-radius: 8px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: inherit;
+}
+
+.np-cost-field-container {
+    padding-top: 15px;
+    font-family: 'Muemo', sans-serif;
+    height: 80px;
+    box-sizing: content-box;
+}
+.np-cost-field-container span {
+    display: block;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    line-height: 10px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    color: #f32f39;
+    font-family: 'Muemo', sans-serif;
+}
+
+#np-cost-field a {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.18;
+    color: #c1c2c2;
+    padding-top: 2px;
+    text-decoration: underline;
+}
+
+#np-cost-field a:hover {
+    text-decoration: none;
+}
+
+.np-current-city-arrow {
+    width: 32px;
+    height: 14px;
+}
+
+.np-cost-info-container {
+    box-sizing: content-box;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 18px;
+    text-align: center;
+    color: #6c737b;
+    word-break: break-all;
+    margin: auto;
+}
+
+.np-line-background {
+    position: relative;
+    width: 100%;
+    height: 16px;
+    background: url('https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/line.png') no-repeat center 6px;
+    background-size: 99%;
+}
+
+#np-cost-number {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    color: #f32f39;
+    padding: 0;
+    margin: 0;
+}
+
+.np-mini-logo {
+    position: relative;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: url(https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-logo.png) no-repeat center;
+    background-size: 26px;
+}
+
+.np-line-right {
+    position: absolute;
+    width: 70px;
+    height: 26px;
+    right: 0;
+    top: 10px;
+    background: url('https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/line-mini.png') no-repeat right;
+    background-size: 100%;
+}
+.np-line-left {
+    position: absolute;
+    width: 70px;
+    height: 26px;
+    top: 10px;
+    left: 0;
+    background: url('https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/line-mini.png') no-repeat left;
+    background-size: 100%;
+}
+
+#np-calc-submit {
+    position: relative;
+    width: 100%;
+    height: 38px;
+    outline: none;
+    font-size: 72%;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #ed1c23;
+    border: none;
+}
+
+#np-calc-submit:focus, #np-calc-submit:active {
+    border: 0;
+    outline: none;
+}
+
+#np-calc-submit[disabled]:hover {cursor: not-allowed;}
+
+#np-cost-return-button {
+    width: 100%;
+    height: 38px;
+    outline: none;
+    font-size: 13px;
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #b1b9c1;
+    border: solid 1px #979797;
+}
+
+#np-cost-return-button:hover {
+    text-decoration: none;
+}
+
+#np-error-field {
+    display: none;
+    position: relative;
+    min-height: inherit;
+    background-color: transparent;
+    border-radius: 8px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+#np-error-field .np-status-logo {
+    display: block;
+    padding-top: 30px;
+    text-align: center;
+    padding-bottom: 21px;
+}
+
+#np-error-field a {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.18;
+    color: #c1c2c2;
+    padding-top: 6px;
+}
+
+.np-error-info-container {
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 18px;
+    text-align: center;
+    color: #6c737b;
+}
+
+#np-error-return-button {
+    width: 100%;
+    height: 38px;
+    padding: 2%;
+    outline: none;
+    font-size: 13px;
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #b1b9c1;
+    border: solid 1px #979797;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#np-error-return-button:hover {
+    text-decoration: none;
+}
+
+#np-arrows {
+    display: none;
+    position: absolute;
+}
+
+/* HORIZONTAL START */
+
+#np-calc-body.np-widget-hz {
+    width: 656px;
+    min-height: 80px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+#np-calc-body.np-widget-hz .np-calc-wrapper,
+#np-calc-body.np-widget-hz #np-cost-field,
+#np-calc-body.np-widget-hz #np-error-field
+{
+    min-height: inherit;
+    box-sizing: border-box;
+    padding-bottom: 0;
+    padding-top: 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+#np-calc-body.np-widget-hz #np-cost-field,
+#np-calc-body.np-widget-hz #np-error-field
+{
+    padding-top: 0;
+}
+
+#np-calc-body.np-widget-hz .np-calc-field {
+    width: 34%;
+    float: left;
+}
+
+#np-calc-body.np-widget-hz #np-calc-submit {
+    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-logo-white.png") no-repeat #ed1c23 15px 8px;
+    position: static;
+}
+
+#np-calc-body.np-widget-hz #np-calc-submit #np-text-button {
+    padding-left: 18px;
+}
+
+#np-calc-body.np-widget-hz #np-calc-submit,
+#np-calc-body.np-widget-hz #np-cost-return-button
+{
+    width: 31%;
+    position: relative;
+    margin: auto;
+}
+
+#np-calc-body.np-widget-hz .np-calc-list,
+#np-calc-body.np-widget-hz .np-cost-field-container
+{
+    margin: auto;
+}
+
+#np-calc-body.np-widget-hz .np-calc-field {
+    margin-bottom: 0;
+}
+
+#np-calc-body.np-widget-hz #np-error-field #np-error-return-button {
+    width: 27%;
+    float: right;
+    padding: 0;
+    margin: auto;
+    position: relative;
+}
+
+#np-calc-body.np-widget-hz .np-calc-field[name="weight"] {
+    width: 70px;
+    margin-right: 10px;
+    position: relative;
+}
+
+#np-calc-body.np-widget-hz .np-calc-field[name="weight"]:after,
+#np-calc-body .np-calc-field[name="weight"]:after
+{
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAYAAAA8sqwkAAAAAXNSR0IArs4c6QAAANZJREFUGBljbGhoYHn75fdFZkbW2AndDefyyuqc//3728PIxOrL8O+fPgPD3y4GKGBkYDzHJCkpyfj/P4PWH4a/nEDNXP/+/p3FwMC4bnJXwxMGpr8C/xkYJJkYGctBmIH5/3QWhO7/3O++/mkBmvJemIelHS7+n+HHxJ6WLTA+XMP/f/93Ak1jYGJkigTa9AemAJ1mQggwezExMHX9Z/jfVFLSzY0QR2UhNDD9//RfXrQO6J9fP/5/6ENVhuAhNADFJufl/WRlZklgZGRMyi+t8UEoQ7AAxQFJPtVHFYoAAAAASUVORK5CYII=) no-repeat;
+    width: 12px;
+    height: 7px;
+}
+
+
+#np-calc-body.np-widget-hz .np-calc-field[role="CitySender"] {
+    margin-right: 10px;
+}
+
+#np-calc-body.np-widget-hz #np-arrows {
+    display: block;
+    float: left;
+    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-back-forward-arrows-1.svg");
+    width: 24px;
+    height: 25px;
+    position: relative;
+    top: 15px;
+    left: -4px;
+}
+
+#np-calc-body.np-widget-hz .np-calc-field[role="CityRecipient"] {
+    margin-right: 10px;
+}
+
+#np-calc-body.np-widget-hz .np-line-background {
+    position: absolute;
+    display: none;
+}
+
+#np-calc-body.np-widget-hz .np-cost-field-container,
+#np-calc-body.np-widget-hz .np-error-field,
+#np-calc-body.np-widget-hz #np-error-field .np-status-logo
+{
+    min-width: 18%;
+    float: left;
+}
+
+#np-calc-body.np-widget-hz .np-cost-info-container,
+#np-calc-body.np-widget-hz .np-error-info-container
+{
+    width: 57%;
+    box-sizing: border-box;
+    padding: 0 14px;
+    float: left;
+    margin: auto;
+}
+
+#np-calc-body.np-widget-hz .np-error-info-container {
+    width: 50%;
+}
+
+#np-calc-body.np-widget-hz .np-cost-field-container {
+    padding-top: 0;
+    height: auto;
+}
+
+#np-calc-body.np-widget-hz #np-error-field .np-status-logo {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: auto;
+}
+
+#np-calc-body.np-widget-hz #np-error-field .np-status-logo img {
+    width: 70px;
+    height: 70px;
+    padding-bottom: 0;
+}
+
+#np-calc-body.np-widget-hz #np-cost-field a,
+#np-calc-body.np-widget-hz #np-error-field a
+{
+    padding-right: 21px;
+    position: static;
+    margin: auto;
+    text-align: center;
+    line-height: 15px;
+}
+
+#np-calc-body.np-widget-hz #np-error-field a {
+    width: 19%;
+}
+
+#np-calc-body.np-widget-hz #np-cost-number {
+    font-size: 48px;
+    line-height: 37px;
+    /*padding-top: 7px;*/
+}
+
+#np-calc-body.np-widget-hz #np-current-city {
+    display: inline;
+}
+
+#np-calc-body.np-widget-hz #np-calc-body {
+    padding-bottom: 0;
+}
+
+#np-calc-body.np-widget-hz #np-load-image {
+    top: 2px;
+    right: 50%;
+    margin-right: -16px;
+    height: 32px;
+}
+
+#np-calc-body.np-widget-hz .np-calc-logotype,
+#np-calc-body.np-widget-hz .np-hl,
+#np-calc-body.np-widget-hz #np-calc-title,
+#np-calc-body.np-widget-hz .np-mini-logo
+{
+    display: none;
+}
+
+/* HORIZONTAL END */
+
+/* Border-radius classes start */
+.np-w-br-0,
+.np-w-br-0 .np-option-search-item,
+.np-w-br-0 .np-option-search-item-weight,
+.np-w-br-0 #np-cost-return-button,
+.np-w-br-0 #np-error-return-button,
+.np-w-br-0 #np-calc-submit {
+    border-radius: 0;
+}
+
+.np-w-br-1,
+.np-w-br-1 .np-option-search-item,
+.np-w-br-1 .np-option-search-item-weight,
+.np-w-br-1 #np-cost-return-button,
+.np-w-br-1 #np-error-return-button,
+.np-w-br-1 #np-calc-submit
+{
+    border-radius: 1px;
+}
+
+.np-w-br-2,
+.np-w-br-2 .np-option-search-item,
+.np-w-br-2 .np-option-search-item-weight,
+.np-w-br-2 #np-cost-return-button,
+.np-w-br-2 #np-error-return-button,
+.np-w-br-2 #np-calc-submit
+{
+    border-radius: 2px;
+}
+
+.np-w-br-3,
+.np-w-br-3 .np-option-search-item,
+.np-w-br-3 .np-option-search-item-weight,
+.np-w-br-3 #np-cost-return-button,
+.np-w-br-3 #np-error-return-button,
+.np-w-br-3 #np-calc-submit
+{
+    border-radius: 3px;
+}
+
+.np-w-br-4,
+.np-w-br-4 .np-option-search-item,
+.np-w-br-4 .np-option-search-item-weight,
+.np-w-br-4 #np-cost-return-button,
+.np-w-br-4 #np-error-return-button,
+.np-w-br-4 #np-calc-submit
+{
+    border-radius: 4px;
+}
+
+.np-w-br-5,
+.np-w-br-5 .np-option-search-item,
+.np-w-br-5 .np-option-search-item-weight,
+.np-w-br-5 #np-cost-return-button,
+.np-w-br-5 #np-error-return-button,
+.np-w-br-5 #np-calc-submit
+{
+    border-radius: 5px;
+}
+
+.np-w-br-6,
+.np-w-br-6 .np-option-search-item,
+.np-w-br-6 .np-option-search-item-weight,
+.np-w-br-6 #np-cost-return-button,
+.np-w-br-6 #np-error-return-button,
+.np-w-br-6 #np-calc-submit
+{
+    border-radius: 6px;
+}
+
+.np-w-br-7,
+.np-w-br-7 .np-option-search-item,
+.np-w-br-7 .np-option-search-item-weight,
+.np-w-br-7 #np-cost-return-button,
+.np-w-br-7 #np-error-return-button,
+.np-w-br-7 #np-calc-submit
+{
+    border-radius: 7px;
+}
+
+.np-w-br-8,
+.np-w-br-8 .np-option-search-item,
+.np-w-br-8 .np-option-search-item-weight,
+.np-w-br-8 #np-cost-return-button,
+.np-w-br-8 #np-error-return-button,
+.np-w-br-8 #np-calc-submit
+{
+    border-radius: 8px;
+}
+
+.np-w-br-9,
+.np-w-br-9 .np-option-search-item,
+.np-w-br-9 .np-option-search-item-weight,
+.np-w-br-9 #np-cost-return-button,
+.np-w-br-9 #np-error-return-button,
+.np-w-br-9 #np-calc-submit
+{
+    border-radius: 9px;
+}
+
+.np-w-br-10,
+.np-w-br-10 .np-option-search-item,
+.np-w-br-10 .np-option-search-item-weight,
+.np-w-br-10 #np-cost-return-button,
+.np-w-br-10 #np-error-return-button,
+.np-w-br-10 #np-calc-submit
+{
+    border-radius: 10px;
+}
+
+.np-w-br-11,
+.np-w-br-11 .np-option-search-item,
+.np-w-br-11 .np-option-search-item-weight,
+.np-w-br-11 #np-cost-return-button,
+.np-w-br-11 #np-error-return-button,
+.np-w-br-11 #np-calc-submit
+{
+    border-radius: 11px;
+}
+
+.np-w-br-12,
+.np-w-br-12 .np-option-search-item,
+.np-w-br-12 .np-option-search-item-weight,
+.np-w-br-12 #np-cost-return-button,
+.np-w-br-12 #np-error-return-button,
+.np-w-br-12 #np-calc-submit
+{
+    border-radius: 12px;
+}
+
+.np-w-br-13,
+.np-w-br-13 .np-option-search-item,
+.np-w-br-13 .np-option-search-item-weight,
+.np-w-br-13 #np-cost-return-button,
+.np-w-br-13 #np-error-return-button,
+.np-w-br-13 #np-calc-submit
+{
+    border-radius: 13px;
+}
+
+/* Border-radius classes end */

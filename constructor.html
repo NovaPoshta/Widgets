@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Main</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel='stylesheet' href='styles/constructor.css' />
+    <link rel='stylesheet' href='styles/calc.css'/>
+    <link rel='stylesheet' href='styles/tracking.css'/>
+    <link rel='stylesheet' href='styles/map.css' />
+    <script src='./src/utils.js'></script>
+  </head>
+  <body>
+    <div class='np-constructor-body'>
+      <div class="np-constructor-header">
+        <div class="np-constructor-logo"></div>
+        <div class='np-vidget-choise'>
+          <div id='np-choise-placeholder'></div>
+          <ul id='np-choise-list'>
+            <li><div class='np-choise-option'>Трекінг посилки</div></li>
+            <li><div class='np-choise-option'>Розрахування вартості</div></li>
+            <li><div class='np-choise-option'>Пошук відділення</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="np-preview-wrapper">
+        <div class='np-preview-body'>
+          <div id='np-tracking' class="np-w-br-0">
+              <div id='np-first-state'>
+                  <div id='np-tracking-logo'></div>
+                  <div id='np-title'>
+                      <h1>ВІДСТЕЖЕННЯ<br>ПОСИЛОК</h1>
+                  </div>
+                  <div id='np-input-container'>
+                      <div id='np-clear-input'></div>
+                      <input id='np-user-input' type='text' name='number' placeholder='Номер посилки'/>
+                  </div>
+                  <div id='np-warning-message'></div>
+                  <button id='np-submit-tracking' type='button'>
+                      <span id='np-text-button-tracking'>ВІДСТЕЖИТИ</span>
+                      <div id='np-load-image-tracking'></div>
+                  </button>
+                  <div id='np-error-status'></div>
+              </div>
+              <div id='np-second-state'>
+                  <div id="np-status-icon"></div>
+                  <div id="np-status-message"></div>
+                  <div class="np-track-mini-logo">
+                      <div class="np-line-right"></div>
+                      <div class="np-line-left"></div>
+                  </div>
+                  <a href="#" id="np-more">Детальніше на сайті</a>
+                  <div id="np-return-button">
+                      <span>Інша посилка</span>
+                  </div>
+              </div>
+          </div>
+
+          <div id='np-calc-body' class="np-w-br-0">
+              <div class='np-calc-wrapper'>
+                  <div class='np-calc-logotype'></div>
+                  <div class="np-hl"></div>
+                  <span id="np-calc-title">Розрахунок вартості<br>доставки</span>
+
+                  <div class='np-calc-list'>
+                      <div class='np-calc-field' name='dispatch' role='CitySender'>
+                          <input type='text' class='np-option-search-item' placeholder='Звідки'/>
+
+                          <div class='np-toggle-options-list'></div>
+                          <ul class='np-options-enter-point' role='CitySender'></ul>
+                      </div>
+                      <div id="np-arrows" name=""></div>
+                      <div class='np-calc-field' name='catch' role='CityRecipient'>
+                          <input type='text' class='np-option-search-item' placeholder='Куди'/>
+
+                          <div class='np-toggle-options-list'></div>
+                          <ul class='np-options-enter-point' role='CityRecipient'></ul>
+                      </div>
+                      <div class='np-calc-field' name='weight' role='Weight'>
+                          <input type='text' class='np-option-search-item-weight' placeholder='Вага посилки'/>
+                      </div>
+                  </div>
+                  <div class='np-line-background'></div>
+                  <button id="np-calc-submit" type="button">
+                      <span id="np-text-button">Розрахувати</span>
+
+                      <div id="np-load-image"></div>
+                  </button>
+              </div>
+              <div id='np-cost-field'>
+                  <div class='np-cost-field-container'>
+                      <p id='np-cost-number'></p>
+                      <span>грн</span>
+                  </div>
+                  <div class='np-cost-info-container'>
+                      <span>Вартість доставки</span><br>
+
+                      <div id='np-current-city'></div>
+                      <span>вагою </span>
+                      <span id='np-current-weight'></span>
+                      <span>кг</span>
+                  </div>
+                  <div class='np-mini-logo'>
+                      <div class='np-line-left'></div>
+                      <div class='np-line-right'></div>
+                  </div>
+                  <a href='https://novaposhta.ua/delivery?utm_source=calc&utm_medium=widget&utm_term=calc&utm_content=widget&utm_campaign=NP' target="_blank">
+                      Детальний розрахунок
+                  </a>
+                  <button type='button' id='np-cost-return-button'>Інша посилка</button>
+              </div>
+
+              <div id='np-error-field'>
+                  <div class='np-status-logo'>
+                      <img src="https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/not-found.svg" alt="error icon"/>
+                  </div>
+                  <div class='np-error-info-container'>
+                      <span>Вибачте!
+                      З технічних причин ми
+                      не змогли розрахувати
+                      Вартість посилки</span>
+                  </div>
+                  <div class='np-mini-logo'>
+                      <div class='np-line-left'></div>
+                      <div class='np-line-right'></div>
+                  </div>
+                  <button type='button' id='np-error-return-button'>Інша посилка</button>
+              </div>
+          </div>
+
+          <div class="np-map-wrapper">
+            <div id="np-map">
+              <button type="button" id="npw-map-open-button">НАЙБЛИЖЧЕ ВІДДІЛЕННЯ</button>
+              <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPhm7Q29X5ldwjLtA7IMYHU_0xATiWK3A"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="np-vidget-settings-body">
+        <div class="np-settings-wrapper">
+          <div class="np-settings-col-1">
+            <div id="np-colors">
+              <div class='np-color-title'>Колір</div>
+              <ul>
+                <li><div class='np-color np-red'></div></li>
+                <li><div class='np-color np-grey'></div></li>
+              </ul>
+            </div>
+
+            <div id='np-checkbox-state'>
+              Горизонтально
+              <input type='radio' class='np-radio-state' name='check' value='horizontal' />
+              Вертикально
+              <input type='radio' class='np-radio-state' name='check' value='vertical' checked />
+            </div>
+          </div>
+
+          <div class="np-settings-col-2">
+            <div id='np-custom-props'>
+              <div class='np-props-wrapper'>
+                <div class='np-text-prop-wrapper'>
+                  Ширина: <input class='np-custom-prop' type='text' value /> px
+                </div>
+                <div class='np-range-wrapper'>
+                  <input class='np-range' name='width' type='range' min max step='1' value />
+                </div>
+              </div>
+
+              <div class='np-props-wrapper'>
+                <div class='np-text-prop-wrapper'>
+                  Висота: <input class='np-custom-prop' type='text' value /> px
+                </div>
+                <div class='np-range-wrapper'>
+                  <input class='np-range' name='minHeight' type='range' min max step='1' value />
+                </div>
+              </div>
+
+              <div class='np-props-wrapper'>
+                <div class='np-text-prop-wrapper'>
+                  Скруглення: <input class='np-custom-prop' type='text' value /> px
+                </div>
+                <div class='np-range-wrapper'>
+                  <input class='np-range' name='borderRadius' type='range' min max step='1' />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="np-if-disabled"></div>
+        </div>
+
+        <div class='np-vidget-source-body'>
+          <div class="np-source-name"><span>Html</span></div>
+          <div id='np-source-container'></div>
+          <input type='button' id='np-copy-button' value='Скопіювати код'>
+          <div class="np-links-container">
+            <div class="np-source-name"><span>Css</span></div>
+            <div id='np-link-to-css' class="np-link-class"></div><div id="np-button-css" class="np-copy-link"></div>
+            <div class="np-source-name"><span>JavaScript</span></div>
+            <div id='np-link-to-js' class="np-link-class"></div><div id="np-button-js" class="np-copy-link"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <script src='./src/constructor.js'></script>
+      <script src="dist/map.min.js"></script>
+  </body>
+</html>
