@@ -1,9 +1,10 @@
 @font-face {
-    font-family: Muemo; 
+    font-family: 'Muemo'; 
     src: url('https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Font/museo_sans_cyrillic_500.ttf') format('truetype'); 
     font-weight: normal;
     font-style: normal;
    }
+
 #np-calc-body {
     width: 200px;
     margin: 0 auto;
@@ -508,12 +509,12 @@
 }
 
 #np-calc-body.np-widget-hz #np-calc-submit {
-    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-logo-white.png") no-repeat #ed1c23 15px 8px;
+    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-logo-white.png") no-repeat #ed1c23 10px 8px;
     position: static;
 }
 
 #np-calc-body.np-widget-hz #np-calc-submit #np-text-button {
-    padding-left: 18px;
+    padding-left: 25px;
 }
 
 #np-calc-body.np-widget-hz #np-calc-submit,
