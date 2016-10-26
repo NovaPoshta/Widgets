@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Muemo'; 
+    src: url('https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Font/museo_sans_cyrillic_500.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+   }
+
+#npw-map-wrapper {
+    display: none;
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 0 30px 0 rgba(51, 51, 51, 0.55);
+    z-index: 50;
+    background-color: #fff;
+    overflow: hidden;
+    border-top: none;
+    font-family: 'Muemo', sans-serif;
+    box-sizing: border-box;
+}
+
+#npw-map {
+    height: 100%;
+    width: 70%;
+    float: left;
+}
+
+#npw-map-sidebar {
+    height: 100%;
+    width: 30%;
+    float: left;
+}
+
+#npw-map-sidebar-header {
+    width: 100%;
+    height: 48px;
+    padding: 10px 13px;
+    box-sizing: border-box;
+    background-color: #ed1c23;
+}
+
+#npw-map-logo {
+    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-logo-white.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    margin: 4px 0 0 9px;
+    float: left;
+}
+
+#npw-map-back {
+    display: none;
+    width: 20px;
+    height: 20px;
+    margin: 4px 0 0 14px;
+    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-back.png") no-repeat;
+    float: left;
+}
+
+#npw-map-back:hover {
+    opacity: 0.7;
+}
+
+#npw-map-close-button {
+    background: url("https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/map-close-button-sprite.png") 0 0 no-repeat;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 20;
+}
+
+#npw-map-close-button:hover {
+    background-position: 0 -46px;
+    cursor: pointer;
+}
+
+#npw-map-back:hover {
+    cursor: pointer;
+}
+
+#npw-map-sidebar input,
+#npw-map-sidebar select
+{
+    border-radius: 4px;
+    color: #6c737b;
+    line-height: 17px;
+    font-size: 13px;
+    padding: 0 10px 2px 10px;
+    background: #fbfbfb;
+    height: 38px;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Muemo', sans-serif;
+}
+
+#npw-map-sidebar #npw-map-sidebar-search {
+    height: 28px;
+}
+
+#npw-map-sidebar input {
+    width: 80%;
+    float: right;
+}
+
+#npw-map-sidebar select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#npw-map-sidebar ul {
+    padding: 0 7px;
+    margin: 0;
+    overflow: auto;
+    height: 498px;
+}
+
+#npw-map-sidebar ul li {
+    margin-bottom: 8px;
+    list-style-type: none;
+    font-size: 16px;
+    line-height: 20px;
+    border: 1px solid #e7e9eb;
+    border-radius: 2px;
+    padding: 12px;
+    color: #6c737b;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.06);
+    text-align: left;
+}
+
+#npw-map-sidebar ul li:hover {
+    border: solid 1px #b1b9c1;
+    background-color: #fbfbfb;
+}
+
+#npw-map-state-details {
+    display: none;
+    margin: 7px;
+    font-size: 12px;
+    line-height: 20px;
+    border: 1px solid #e7e9eb;
+    border-radius: 2px;
+    padding: 26px 12px 2px 12px;
+    color: #6c737b;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#npw-map-state-details div {
+    margin-bottom: 9px;
+}
+
+#npw-map-state-details a {
+    display: block;
+    font-size: 12px;
+    color: #c1c2c2;
+    text-decoration: underline;
+    padding: 12px 0 5px 0;
+    margin-top: 12px;
+    border-top: 1px solid #e7e9eb;
+}
+
+#npw-map-state-details a:hover {
+    text-decoration: none;
+}
+
+#npw-map-sidebar ul li div {
+    line-height: 16px;
+    margin-bottom: 7px;
+}
+
+.npw-list-city {
+    font-size: 14px;
+}
+.npw-list-warehouse {
+    font-size: 16px;
+    border-bottom: 1px solid #e7e9eb;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+}
+.npw-list-address {
+    font-size: 12px;
+    color: #b1b9c1;
+}
+
+.npw-details-title {
+    font-size: 18px;
+    color: #f63743;
+    border-bottom: 1px solid #e7e9eb;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+#npw-map-sidebar ul li:hover {
+    cursor: pointer;
+}
+
+.npw-display-block {
+    display: block !important;
+}
+
+#npw-map-open-button {
+    width: 200px;
+    height: 38px;
+    outline: none;
+    border-radius: 4px;
+    border: solid 1px #ef232b;
+    color: #fff;
+    font-size: 11px;
+    font-style: normal;
+    text-align: right;
+    padding-right: 21px;
+    background: url('https://apimgmtstorelinmtekiynqw.blob.core.windows.net/content/MediaLibrary/Widget/img/np-logo-white.png') no-repeat #ed1c23 10px;
+    background-size: 20px;
+    font-family: 'Muemo', sans-serif;
+    /*position: relative;*/
+}
+
+#npw-map-open-button.npw-map-open-button-opened {
+    background-color: #b1b9c1 !important;
+    border: 1px solid transparent;
+}
+
+#npw-map-open-button:hover,
+#npw-map-open-button:focus,
+#npw-map-open-button:active
+{
+    cursor: pointer;
+    outline: none;
+}
